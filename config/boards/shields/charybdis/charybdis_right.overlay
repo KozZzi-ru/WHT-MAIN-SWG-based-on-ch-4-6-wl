@@ -62,40 +62,8 @@
 };
 
 / {
-    input_processors {
-        // Процессор для конвертации XY в скролл
-        zip_xy_to_scroll_mapper: zip_xy_to_scroll_mapper {
-            compatible = "zmk,input-processor-code-mapper";
-            #input-processor-cells = <0>;
-            type = <INPUT_EV_REL>;
-            map = <INPUT_REL_X INPUT_REL_HWHEEL
-                   INPUT_REL_Y INPUT_REL_WHEEL>;
-        };
-
-        // Процессор для замедления XY (снайпер)
-        zip_xy_scaler: zip_xy_scaler {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <2>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_X>, <INPUT_REL_Y>;
-            track-remainders;
-        };
-    };
-
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-
-        // Скролл на базовом слое (layer 0)
-        scroll {
-            layers = <0>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
-        };
-
-        // Снайпер на слое 3 (snipe_layer) - замедление в 3 раза
-        snipe {
-            layers = <3>;
-            input-processors = <&zip_xy_scaler 1 3>;
-        };
     };
 };
