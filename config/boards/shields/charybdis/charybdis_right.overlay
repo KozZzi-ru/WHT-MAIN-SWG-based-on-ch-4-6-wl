@@ -34,6 +34,8 @@
     };
 };
 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
 &spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
@@ -44,15 +46,17 @@
 
     trackball: trackball@0 {
         status = "okay";
-        compatible = "pixart,pmw3610";
+        compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        cpi = <1000>;
+        invert-x;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
 
-        /* optional features */
-        scroll-layers = <0>;   /* скролл “по умолчанию” на базовом слое */
-        snipe-layers = <4>;    /* режим точности, когда активен слой 4 */
-        /* automouse-layer удалён: никаких авто-поднятий слоя при движении */
+        force-awake;
     };
 };
 
