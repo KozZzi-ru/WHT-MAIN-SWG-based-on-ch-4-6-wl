@@ -5,6 +5,9 @@
  * Trackball input processor configurations for Charybdis keyboard
  * Defines scroll, snipe, and move modes with layer bindings
  * Dual scroll modes: fast on QWERTY, slow on NUM_AND_FUN
+ * 
+ * IMPORTANT: Order matters! More specific layer bindings should come first
+ * to prevent fallback to wrong modes.
  */
 
 #include "charybdis_layers.h"
@@ -13,15 +16,16 @@
 
 // Standard trackball processing configuration
 // Configures different trackball behaviors for different layers
+// Order: snipe -> move -> scroll_slow -> scroll (base as fallback)
 #define CHARYBDIS_TRACKBALL_PROCESSORS \
     snipe { \
         layers = <SNIPE>; \
         input-processors = <&zip_xy_scaler 1 3>; \
     }; \
     \
-    scroll { \
-        layers = <QWERTY>; \
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 40>, <&zip_xy_to_scroll_mapper>; \
+    move { \
+        layers = <AUTO_MOUSE>; \
+        input-processors = <&zip_xy_scaler 3 2>; \
     }; \
     \
     scroll_slow { \
@@ -29,7 +33,7 @@
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 120>, <&zip_xy_to_scroll_mapper>; \
     }; \
     \
-    move { \
-        layers = <AUTO_MOUSE>; \
-        input-processors = <&zip_xy_scaler 3 2>; \
+    scroll { \
+        layers = <QWERTY>; \
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 40>, <&zip_xy_to_scroll_mapper>; \
     };
