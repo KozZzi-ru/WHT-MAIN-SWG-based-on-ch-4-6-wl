@@ -25,7 +25,7 @@
     \
     move { \
         layers = <AUTO_MOUSE>; \
-        input-processors = <&zip_xy_scaler 3 2>; \
+        input-processors = <&zip_xy_scaler 1 1>; \
     }; \
     \
     scroll_slow { \
