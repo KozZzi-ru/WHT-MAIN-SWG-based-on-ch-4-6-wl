@@ -153,7 +153,7 @@ jobs:
               "&HSplit": "HSPLIT",
               "&VSplit": "VSPLIT",
               "&caps_word": "CAPS WORD",
-              "&phrase_proshu": "ПРОШУ ПРОЩЕНИЯ",
+              "&phrase_proshu": "ПРОШУ РАССМОТР",
               "&phrase_spasibo": "СПАСИБО!",
               "&mmv_slow": "MOUSE SLOW"
             }
