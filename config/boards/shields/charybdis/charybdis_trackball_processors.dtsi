@@ -5,7 +5,7 @@
  * Trackball input processor configurations for Charybdis keyboard
  * Defines scroll, snipe, and move modes with layer bindings
  * Dual scroll modes: fast on QWERTY, slow on NUM_AND_FUN
- * SEPARATE VERTICAL/HORIZONTAL SCROLL SPEED (horizontal 3-4x slower)
+ * SEPARATE VERTICAL/HORIZONTAL SCROLL SPEED with EXTREME dividers
  * 
  * IMPORTANT: Order matters! More specific layer bindings should come first
  * to prevent fallback to wrong modes.
@@ -55,17 +55,17 @@
     scroll_slow { \
         layers = <NUM_AND_FUN>; \
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, \
-                           <&zip_xy_scaler 1 120>, \
+                           <&zip_xy_scaler 1 16>, \
                            <&zip_xy_to_scroll_mapper>, \
-                           <&zip_wheel_scaler 1 1>, \
-                           <&zip_hwheel_scaler 1 3>; \
+                           <&zip_wheel_scaler 1 8>, \
+                           <&zip_hwheel_scaler 1 16>; \
     }; \
     \
     scroll { \
         layers = <QWERTY>; \
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, \
-                           <&zip_xy_scaler 1 40>, \
+                           <&zip_xy_scaler 1 10>, \
                            <&zip_xy_to_scroll_mapper>, \
-                           <&zip_wheel_scaler 1 1>, \
-                           <&zip_hwheel_scaler 1 4>; \
+                           <&zip_wheel_scaler 1 4>, \
+                           <&zip_hwheel_scaler 1 8>; \
     };
