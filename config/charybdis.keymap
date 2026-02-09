@@ -184,7 +184,7 @@
         num_and_fun { bindings = <
 &trans  &kp F1              &kp F2              &kp F3          &kp F4              &kp F5               &trans           &trans           &trans           &trans        &trans         &trans
 &trans  &kp F6              &kp F7              &kp F8          &kp F9              &kp F10              &kp LPAR         &kp NUMBER_7     &kp NUMBER_8     &kp NUMBER_9  &kp KP_DIVIDE  &kp ASTERISK
-&trans  &kp LA(LEFT_ARROW)  &kp LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT_ARROW)  &kp F11              &kp RPAR         &kp NUMBER_4     &kp NUMBER_5     &kp NUMBER_6  &kp MINUS      &kp RS(EQUAL)
+&trans  &kp LA(LEFT_ARROW)  &kp LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT_ARROW)  &kp F11             &kp RPAR         &kp NUMBER_4     &kp NUMBER_5     &kp NUMBER_6  &kp MINUS      &kp RS(EQUAL)
 &trans  &kp LA(RIGHT_ARROW) &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW     &kp F12              &kp KP_NUMBER_0  &kp NUMBER_1     &kp NUMBER_2     &kp NUMBER_3  &kp KP_DOT     &kp LEFT_ALT
         &trans              &trans              &trans          &trans              &trans               &trans           &trans           &trans
             >; };
