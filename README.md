@@ -327,6 +327,12 @@ scroll {
 
 ## История изменений
 
+### 09.02.2026 - Обновление keymap-drawer до v0.22.1
+- Обновлен workflow `.github/workflows/draw_keymaps.yaml`
+- Добавлено явное указание версии: `keymap-drawer>=0.22.1`
+- Включены новые фичи: dark mode, separate combo diagrams, key sides (3D эффект)
+- Улучшенная визуализация раскладки с современными возможностями
+
 ### 09.02.2026 - Исправление периодических зависаний клавиатуры
 - Создан бранч `fix-input-stack-overflow`
 - Добавлено `CONFIG_INPUT_THREAD_STACK_SIZE=2048` для устранения переполнения стека input-потока
