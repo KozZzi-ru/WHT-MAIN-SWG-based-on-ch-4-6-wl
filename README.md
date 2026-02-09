@@ -321,9 +321,19 @@ scroll {
 | Проблемы с Bluetooth | ✅ | ✅ | ✅ |
 | Первая прошивка | ✅ | ✅ | ✅ |
 | Пины/аппаратная конфигурация трекбола | ❌ | ✅ | ❌ |
-| Глобальные настройки (charybdis.conf) | ✅ | ✅ | ❌ |
+| Глобальные настройки (charybdis.conf) | ✅ | ✅ | ✅ |
+
+⚠️ **Важно**: После изменения `CONFIG_INPUT_THREAD_STACK_SIZE` обязательно прошей `settings_reset-nice_nano-zmk.uf2` на обе половины перед прошивкой основных файлов.
 
 ## История изменений
+
+### 09.02.2026 - Исправление периодических зависаний клавиатуры
+- Создан бранч `fix-input-stack-overflow`
+- Добавлено `CONFIG_INPUT_THREAD_STACK_SIZE=2048` для устранения переполнения стека input-потока
+- Проблема: клавиатура периодически переставала отвечать (зависания во время скролла и набора текста), помогал только reset
+- Причина: дефолтный стек input-потока (512 байт) недостаточен для цепочки из 4-5 input processors с PMW3610-alt
+- Решение основано на workaround из issue zmkfirmware/zmk#3212
+- После прошивки обязательно выполнить settings reset на обеих половинах
 
 ### 05.02.2026 - Экспериментальные экстремальные делители скролла
 - Создан новый бранч `READY_extreme-scroll-dividers`
@@ -389,6 +399,7 @@ scroll {
 - [PMW3610 Driver by badjeff](https://github.com/badjeff/zmk-pmw3610-driver) - драйвер трекбола PMW3610
 - [ZMK Input Processors](https://zmk.dev/docs/keymaps/input-processors/scaler) - документация по обработке ввода
 - [choovick/zmk-config-charybdis](https://github.com/choovick/zmk-config-charybdis) - референсная конфигурация Charybdis с донглом и OLED
+- [ZMK Issue #3212](https://github.com/zmkfirmware/zmk/issues/3212) - stack overrun in input thread
 
 ## Предупреждение
 
