@@ -92,7 +92,7 @@ jobs:
 
       - name: Install keymap-drawer (pypi)
         if: inputs.install_branch == ''
-        run: python3 -m pip install keymap-drawer
+        run: python3 -m pip install keymap-drawer>=0.22.1
 
       - name: Install keymap-drawer (git)
         if: inputs.install_branch != ''
