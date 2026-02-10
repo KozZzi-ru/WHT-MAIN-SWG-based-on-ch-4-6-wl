@@ -59,6 +59,11 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
 
+        // Reduce polling for BT adapter compatibility
+        // Default pmw3610-alt polls continuously, this adds 8ms delay between reads
+        // Results in ~125 Hz polling rate instead of ~1000 Hz
+        poll-interval-ms = <8>;
+        
         force-awake;
     };
 };
